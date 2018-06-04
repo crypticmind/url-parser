@@ -57,7 +57,12 @@ type alias State value =
 -}
 string : Parser (String -> a) a
 string =
-  custom "STRING" Ok
+  custom "STRING" <|
+    \segment ->
+      if String.isEmpty segment then
+        Err "Empty string"
+      else
+        Ok segment
 
 
 {-| Parse a segment of the path as an `Int`.
