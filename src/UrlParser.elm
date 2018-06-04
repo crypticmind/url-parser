@@ -98,13 +98,10 @@ s str =
 
 
 {-| Create a custom path segment parser. Here is how it is used to define the
-`int` and `string` parsers:
+`int` parser:
 
     int =
       custom "NUMBER" String.toInt
-
-    string =
-      custom "STRING" Ok
 
 You can use it to define something like “only CSS files” like this:
 
